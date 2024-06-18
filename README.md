@@ -7,6 +7,8 @@ This repository contains a script to set up Juneogo binaries and create a system
 
 - Ubuntu or a similar Linux distribution
 - `git` installed on your system
+- ```bash
+  sudo apt-get update
 
 ## Installation Instructions
 
