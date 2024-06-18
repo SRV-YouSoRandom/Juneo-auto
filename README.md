@@ -1,4 +1,5 @@
-# Juneogo Setup Script
+# Juneogo Setup Script (For Socotra Testnet) 
+** This is not for Mainnet**
 
 This repository contains a script to set up Juneogo binaries and create a systemd service for it.
 
