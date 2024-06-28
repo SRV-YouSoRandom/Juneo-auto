@@ -1,5 +1,5 @@
 # Juneogo Setup Script (For Socotra Testnet) 
-** This is not for Mainnet**
+** This is for Mainnet not for testnet**
 
 This repository contains a script to set up Juneogo binaries and create a systemd service for it.
 
@@ -31,13 +31,16 @@ This repository contains a script to set up Juneogo binaries and create a system
    #Starting a Service:
    sudo systemctl start juneogo.service
 
+   #Checking status:
+   sudo systemctl status juneogo.service
+
    #Note the above commands are already executed in the auto-installer, this is noted for future uses.
 
    #Restarting a Service:
    sudo systemctl restart juneogo.service
 
    #Stopping a service:
-   sudo systemctl start juneogo.service
+   sudo systemctl stop juneogo.service
 
    #Disabling a service:
    sudo systemctl disable juneogo.service
