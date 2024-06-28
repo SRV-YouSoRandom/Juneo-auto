@@ -72,8 +72,8 @@ This repository contains a script to set up Juneogo binaries and create a system
    }
 
    6 **Check if connected to mainnet**
-
-   curl -X POST --data '{
+  ```bash
+    curl -X POST --data '{
     "jsonrpc":"2.0",
     "id"     :1,
     "method" :"info.getNetworkName"
