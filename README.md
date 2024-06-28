@@ -71,6 +71,15 @@ This repository contains a script to set up Juneogo binaries and create a system
      "id": 1
    }
 
+   6 **Check if connected to mainnet**
+
+   curl -X POST --data '{
+    "jsonrpc":"2.0",
+    "id"     :1,
+    "method" :"info.getNetworkName"
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/info
+
+
 Follow the given steps on this document
 Link - https://docs.juneo.com/intro/validate/add-a-validator
    
