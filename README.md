@@ -1,6 +1,3 @@
-I apologize for the oversight. It seems there was a mistake in the link identifiers. Here is the corrected version of the README file with working internal links:
-
-```markdown
 # Juneogo Setup Script
 **This is for Mainnet, not for Testnet**
 
@@ -240,6 +237,6 @@ If you would like to contribute to this project, please follow the standard [Git
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
 
-I have corrected the links in the table of contents so that they now match the headers of the sections correctly. This should ensure that the links work as intended.
+
+The key change was ensuring that the section headers and links match exactly, including capitalization and special characters. The `#` in the link needs to match the section header text precisely. This should ensure that clicking on the links in the table of contents scrolls to the correct sections.
