@@ -22,12 +22,12 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
-# Prompt the user for a password or use the default root password
-print_msg "$CYAN" "Enter a password for the 'juneo' user (leave blank to use root password): "
-read juneo_password
+# Prompt the user for a password or use the default password
+print_msg "$CYAN" "Enter a password for the 'juneo' user (leave blank to use 'defaultpassword'): "
+read -s juneo_password
 if [ -z "$juneo_password" ]; then
-    juneo_password=$(grep "^root:" /etc/shadow | cut -d: -f2)
-    print_msg "$YELLOW" "Using root password for 'juneo' user."
+    juneo_password="defaultpassword"
+    print_msg "$YELLOW" "Using default password for 'juneo' user."
 else
     print_msg "$YELLOW" "Using provided password for 'juneo' user."
 fi
@@ -46,6 +46,12 @@ if [ ! -d "/home/juneo" ]; then
     print_msg "$BLUE" "Creating home directory for 'juneo' user..."
     mkdir -p /home/juneo
     chown juneo:juneo /home/juneo
+fi
+
+# Grant sudo privileges to the juneo user
+if ! sudo grep -q "^juneo " /etc/sudoers; then
+    print_msg "$BLUE" "Granting sudo privileges to 'juneo' user..."
+    echo "juneo ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers
 fi
 
 # Switch to the new user and execute the rest of the script
@@ -131,9 +137,9 @@ if [ "$backup_choice" == "yes" ]; then
     mkdir -p $backup_dir
 
     print_msg "$BLUE" "Backing up staker.crt, staker.key, and signer.key..."
-    cp /home/.juneogo/staking/staker.crt $backup_dir
-    cp /home/.juneogo/staking/staker.key $backup_dir
-    cp /home/.juneogo/staking/signer.key $backup_dir
+    cp /home/juneo/.juneogo/staking/staker.crt $backup_dir
+    cp /home/juneo/.juneogo/staking/staker.key $backup_dir
+    cp /home/juneo/.juneogo/staking/signer.key $backup_dir
 
     print_msg "$GREEN" "Starting the Juneogo service..."
     sudo systemctl start juneogo.service
