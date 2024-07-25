@@ -41,12 +41,16 @@ else
     print_msg "$BLUE" "User 'juneo' already exists."
 fi
 
-# Ensure the home directory for 'juneo' user exists
+# Ensure the home directory for 'juneo' user exists and has correct permissions
 if [ ! -d "/home/juneo" ]; then
     print_msg "$BLUE" "Creating home directory for 'juneo' user..."
     mkdir -p /home/juneo
-    chown juneo:juneo /home/juneo
 fi
+
+# Correct ownership and permissions
+print_msg "$BLUE" "Setting ownership and permissions for /home/juneo..."
+chown -R juneo:juneo /home/juneo
+chmod 755 /home/juneo
 
 # Grant sudo privileges to the juneo user
 if ! sudo grep -q "^juneo " /etc/sudoers; then
