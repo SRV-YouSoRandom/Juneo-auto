@@ -18,7 +18,7 @@ print_msg() {
 
 # Ensure the script is run as root
 if [ "$(id -u)" -ne 0 ]; then
-    print_msg "$RED" "This script to sync and backup to testnet!!!"
+    print_msg "$RED" "This script must be run as root. Use sudo ./setup_juneogo.sh"
     exit 1
 fi
 
@@ -41,12 +41,16 @@ else
     print_msg "$BLUE" "User 'juneo' already exists."
 fi
 
-# Ensure the home directory for 'juneo' user exists
+# Ensure the home directory for 'juneo' user exists and has correct permissions
 if [ ! -d "/home/juneo" ]; then
     print_msg "$BLUE" "Creating home directory for 'juneo' user..."
     mkdir -p /home/juneo
-    chown juneo:juneo /home/juneo
 fi
+
+# Correct ownership and permissions
+print_msg "$BLUE" "Setting ownership and permissions for /home/juneo..."
+chown -R juneo:juneo /home/juneo
+chmod 755 /home/juneo
 
 # Grant sudo privileges to the juneo user
 if ! sudo grep -q "^juneo " /etc/sudoers; then
