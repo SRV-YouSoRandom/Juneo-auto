@@ -24,14 +24,22 @@ sudo apt-get update
 1. **Run the script:**
    
    Open a terminal and run the following command to clone the repository:
+   For Mainnet
    ```bash
    git clone https://github.com/Srv8/Juneo-auto
    cd Juneo-auto
    chmod +x setup.sh
    sudo ./setup.sh
    ```
+   For Testnet
+   ```bash
+   git clone https://github.com/Srv8/Juneo-auto
+   cd Juneo-auto
+   chmod +x testnet.sh
+   sudo ./testnet.sh
+   ```
 
-2. **Start and Stop the service:**
+3. **Start and Stop the service:**
    
    ```bash
    # Reloading the systemctl file:
@@ -58,14 +66,14 @@ sudo apt-get update
    sudo systemctl disable juneogo.service
    ```
 
-3. **Check Status:**
+4. **Check Status:**
    
    ```bash
    sudo systemctl status juneogo.service
    sudo journalctl -u juneogo.service
    ```
 
-4. **Check Bootstrapping Status:**
+5. **Check Bootstrapping Status:**
    
    ```bash
    curl -X POST --data '{
@@ -78,7 +86,7 @@ sudo apt-get update
    }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/info
    ```
 
-5. **When the output is like this:**
+6. **When the output is like this:**
    
    ```bash
    {
@@ -90,7 +98,7 @@ sudo apt-get update
    }
    ```
 
-6. **Check if connected to mainnet:**
+7. **Check if connected to mainnet:**
    
    ```bash
    curl -X POST --data '{
@@ -100,7 +108,7 @@ sudo apt-get update
    }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/info
    ```
 
-7. **To login as new user (juneo):**
+8. **To login as new user (juneo):**
    
    ```bash
    su - juneo
