@@ -203,7 +203,14 @@ Depending on which method you used to save your original files:
    ```
 2. Copy the path and save it.
 3. Navigate to your local device folder where the backup files are and open Command Prompt from that folder.
-4. Then follow this command:
+   eg:
+
+https://github.com/user-attachments/assets/64443009-6bf8-40a4-bae4-bb0226ee98ba
+
+
+   
+   
+5. Then follow this command:
    
    ```bash
    scp /staker.crt root@IPaddress:Path/to/the/dir
