@@ -100,7 +100,7 @@ sudo -u juneo unzip -o /home/juneo/juneogo_db_backup.zip -d /home/juneo/
 # Replace the automatically created DB with the snapshot
 echo "Replacing the automatically created DB with the snapshot..."
 rm -rf /home/juneo/.juneogo/db
-mv /home/juneo/db /home/juneo/.juneogo/
+mv /home/juneo/juneogo_db_backup/db /home/juneo/.juneogo/
 
 # Verify if the DB replacement was successful
 if [ -d "/home/juneo/.juneogo/db" ]; then
