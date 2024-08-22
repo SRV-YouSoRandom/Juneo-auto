@@ -6,6 +6,10 @@ if [ "$(id -u)" -ne 0 ]; then
     exit 1
 fi
 
+# Install unzip tool if not already installed
+echo "Installing unzip tool..."
+apt-get update && apt-get install -y unzip
+
 # Prompt for the password of the new user 'juneo'
 echo "Please enter a password for the 'juneo' user:"
 read -s juneo_password
@@ -77,8 +81,37 @@ sudo systemctl daemon-reload
 echo "Enabling the Juneogo service to start on boot..."
 sudo systemctl enable juneogo.service
 
-# Start the service immediately
+# Start the service to generate the necessary directories
 echo "Starting the Juneogo service..."
+sudo systemctl start juneogo.service
+
+# Stop the service to replace the DB with the snapshot
+echo "Stopping the Juneogo service..."
+sudo systemctl stop juneogo.service
+
+# Download the snapshot DB zip file
+echo "Downloading the snapshot DB file..."
+sudo -u juneo wget -O /home/juneo/juneogo_db_backup.zip https://github.com/Srv8/Juneo-auto/raw/main/juneogo_db_backup.zip
+
+# Unzip the downloaded snapshot
+echo "Unzipping the snapshot DB file..."
+sudo -u juneo unzip -o /home/juneo/juneogo_db_backup.zip -d /home/juneo/
+
+# Replace the automatically created DB with the snapshot
+echo "Replacing the automatically created DB with the snapshot..."
+rm -rf /home/juneo/.juneogo/db
+mv /home/juneo/db /home/juneo/.juneogo/
+
+# Verify if the DB replacement was successful
+if [ -d "/home/juneo/.juneogo/db" ]; then
+    echo "DB replacement successful."
+else
+    echo "DB replacement failed. Please check manually."
+    exit 1
+fi
+
+# Restart the Juneogo service with the new DB
+echo "Restarting the Juneogo service..."
 sudo systemctl start juneogo.service
 
 echo "Juneogo setup complete and service started as user 'juneo'."
