@@ -85,22 +85,21 @@ sudo systemctl enable juneogo.service
 echo "Starting the Juneogo service..."
 sudo systemctl start juneogo.service
 
-# Stop the service to replace the DB with the snapshot
+# Stop the service to prepare for DB restoration
 echo "Stopping the Juneogo service..."
 sudo systemctl stop juneogo.service
 
+# Rename the current database directory
+echo "Renaming the current database directory..."
+mv /home/juneo/.juneogo/db /home/juneo/.juneogo/db_old
+
 # Download the snapshot DB zip file
 echo "Downloading the snapshot DB file..."
-sudo -u juneo wget -O /home/juneo/juneogo_db_backup.zip https://github.com/Srv8/Juneo-auto/raw/main/juneogo_db_backup.zip
+sudo -u juneo wget -O /home/juneo/.juneogo/juneogo_db_backup.zip https://github.com/Srv8/Juneo-auto/raw/main/juneogo_db_backup.zip
 
-# Unzip the downloaded snapshot
+# Unzip the snapshot into the .juneogo directory
 echo "Unzipping the snapshot DB file..."
-sudo -u juneo unzip -o /home/juneo/juneogo_db_backup.zip -d /home/juneo/
-
-# Replace the automatically created DB with the snapshot
-echo "Replacing the automatically created DB with the snapshot..."
-rm -rf /home/juneo/.juneogo/db
-mv /home/juneo/juneogo_db_backup/db /home/juneo/.juneogo/
+sudo -u juneo unzip -o /home/juneo/.juneogo/juneogo_db_backup.zip -d /home/juneo/.juneogo/
 
 # Verify if the DB replacement was successful
 if [ -d "/home/juneo/.juneogo/db" ]; then
