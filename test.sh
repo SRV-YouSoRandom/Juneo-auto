@@ -82,3 +82,21 @@ echo "Starting the Juneogo service..."
 sudo systemctl start juneogo.service
 
 echo "Juneogo setup complete and service started as user 'juneo'."
+
+# Prompt to backup NodeID and staking files
+echo "Do you want to backup your NodeID and staking files? (yes/no)"
+read backup_choice
+
+if [ "$backup_choice" == "yes" ]; then
+    backup_dir="/root/juneogo_staking_backup"
+    
+    # Create backup directory in the root user's home directory
+    mkdir -p $backup_dir
+    
+    # Copy the staking directory to the backup directory
+    cp -r /home/juneo/.juneogo/staking/ $backup_dir/
+    
+    echo "Backup complete. The NodeID and staking files have been copied to: $backup_dir"
+else
+    echo "No backup was made. Exiting."
+fi
