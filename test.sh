@@ -18,6 +18,11 @@ else
     useradd -m -s /bin/bash juneo
     echo "juneo:$juneo_password" | chpasswd
     echo "User 'juneo' created successfully."
+    
+    # Add the juneo user to the sudo group
+    echo "Adding 'juneo' user to the sudo group..."
+    usermod -aG sudo juneo
+    echo "'juneo' user added to the sudo group."
 fi
 
 # Change to the juneo user's home directory
