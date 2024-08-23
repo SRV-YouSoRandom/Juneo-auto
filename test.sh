@@ -7,6 +7,7 @@ if [ "$(id -u)" -ne 0 ]; then
 fi
 
 # Install unzip tool if not already installed
+# Database is replacing the file
 echo "Installing unzip tool..."
 apt-get update && apt-get install -y unzip
 
