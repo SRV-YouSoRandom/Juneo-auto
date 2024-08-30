@@ -11,8 +11,9 @@ echo "Installing unzip tool..."
 apt-get update && apt-get install -y unzip
 
 # Prompt for the password of the new user 'juneo'
-echo "Please enter a password for the 'juneo' user:"
+echo -n "Please enter a password for the 'juneo' user: "
 read -s juneo_password
+echo
 
 # Check if the user 'juneo' already exists, and create if not
 if id "juneo" &>/dev/null; then
@@ -106,7 +107,6 @@ if [ -d "/home/juneo/.juneogo/db" ]; then
     echo "DB replacement successful."
 else
     echo "DB replacement failed. Please check manually."
-    # Continue with daemon-reload and service restart even if DB replacement fails
 fi
 
 # Restart the Juneogo service with the new DB
@@ -116,7 +116,7 @@ sudo systemctl start juneogo.service
 echo "Juneogo setup complete and service started as user 'juneo'."
 
 # Prompt to backup NodeID and staking files
-echo "Do you want to backup your NodeID and staking files? (yes/no)"
+echo -n "Do you want to backup your NodeID and staking files? (yes/no): "
 read backup_choice
 
 if [ "$backup_choice" == "yes" ]; then
