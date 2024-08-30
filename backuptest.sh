@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Ensure the script is run as root
-if [ "$(id -u)" -ne 0; then
+if [ "$(id -u)" -ne 0 ]; then
     echo "This script must be run as root. Use sudo ./setup_juneogo.sh"
     exit 1
 fi
@@ -14,6 +14,7 @@ apt-get update && apt-get install -y unzip
 echo -n "Please enter a password for the 'juneo' user: "
 read -s juneo_password
 echo
+echo "Password entered."
 
 # Check if the user 'juneo' already exists, and create if not
 if id "juneo" &>/dev/null; then
@@ -118,6 +119,7 @@ echo "Juneogo setup complete and service started as user 'juneo'."
 # Prompt to backup NodeID and staking files
 echo -n "Do you want to backup your NodeID and staking files? (yes/no): "
 read backup_choice
+echo "Backup choice received."
 
 if [ "$backup_choice" == "yes" ]; then
     backup_dir="/root/juneogo_staking_backup"
