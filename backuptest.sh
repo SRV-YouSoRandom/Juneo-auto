@@ -95,7 +95,7 @@ mv /home/juneo/.juneogo/db /home/juneo/.juneogo/db_old
 
 # Download the snapshot DB zip file
 echo "Downloading the snapshot DB file..."
-sudo -u juneo wget -O /home/juneo/.juneogo/juneogo_db_backup.zip https://github.com/Srv8/Juneo-auto/raw/main/juneogo_db_backup.zip
+sudo -u juneo wget -O /home/juneo/.juneogo/juneogo_db_backup.zip http://212.90.121.86:6969/juneogo_db_backup.zip
 
 # Unzip the snapshot into the .juneogo directory
 echo "Unzipping the snapshot DB file..."
@@ -106,9 +106,10 @@ if [ -d "/home/juneo/.juneogo/db" ]; then
     echo "DB replacement successful."
 else
     echo "DB replacement failed. Please check manually."
+    # Continue with daemon-reload and service restart even if DB replacement fails
 fi
 
-# Restart the Juneogo service with the new DB regardless of the DB check
+# Restart the Juneogo service with the new DB
 echo "Restarting the Juneogo service..."
 sudo systemctl start juneogo.service
 
