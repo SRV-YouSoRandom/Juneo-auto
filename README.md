@@ -28,8 +28,8 @@ sudo apt-get update
    ```bash
    git clone https://github.com/Srv8/Juneo-auto
    cd Juneo-auto
-   chmod +x setup.sh
-   sudo ./setup.sh
+   chmod +x mainnet.sh
+   sudo ./mainnet.sh
    ```
    For Testnet
    ```bash
@@ -70,7 +70,7 @@ sudo apt-get update
    
    ```bash
    sudo systemctl status juneogo.service
-   sudo journalctl -u juneogo.service
+   sudo journalctl -fu juneogo.service
    ```
 
 5. **Check Bootstrapping Status:**
