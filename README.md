@@ -246,6 +246,7 @@ sudo systemctl status juneogo.service
 
 ## Snapshots
 **Link to snapshots** - HTTP://212.90.121.86:6969
+**juneogo_mdb_backup.zip is for mainnet**
    
 
 ## Contributing
