@@ -1,10 +1,10 @@
 # Juneogo Setup Script
-**This is for Mainnet, not for Testnet**
 
 - [Prerequisites](#prerequisites)
 - [Installation Instructions](#installation-instructions)
 - [Usage](#usage)
 - [Backup Instructions](#backup-instructions)
+- [Snapshots](#snapshots)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -243,6 +243,9 @@ sudo systemctl status juneogo.service
 ```
 
 ## Check if the NodeID matches your original NodeID
+
+## Snapshots
+**Link to snapshots** - HTTP://212.90.121.86:6969
    
 
 ## Contributing
