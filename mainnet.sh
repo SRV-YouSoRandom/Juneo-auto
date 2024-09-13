@@ -2,7 +2,7 @@
 
 # Ensure the script is run as root
 if [ "$(id -u)" -ne 0 ]; then
-    echo "This script must be run as root. Use sudo ./setup_juneogo.sh"
+    echo "This script must be run as root."
     exit 1
 fi
 
