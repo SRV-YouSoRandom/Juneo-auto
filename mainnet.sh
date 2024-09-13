@@ -100,11 +100,11 @@ mv /home/juneo/.juneogo/db /home/juneo/.juneogo/db_old
 
 # Download the snapshot DB zip file
 echo "Downloading the snapshot DB file..."
-sudo -u juneo wget -u /home/juneo/.juneogo/juneogo_mdb_backup.zip http://212.90.121.86:6969/juneogo_mdb_backup.zip
+wget -u http://212.90.121.86:6969/juneogo_mdb_backup.zip
 
 # Unzip the snapshot into the .juneogo directory
 echo "Unzipping the snapshot DB file..."
-sudo -u juneo unzip -u /home/juneo/.juneogo/juneogo_mdb_backup.zip -d /home/juneo/.juneogo/
+unzip -u juneogo_mdb_backup.zip -d /home/juneo/.juneogo/
 
 sleep 10
 
