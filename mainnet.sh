@@ -93,6 +93,11 @@ else
 fi
 
 # Restart the Juneogo service with the new DB
+
+# Reload systemd to apply the new service
+echo "Reloading systemd daemon..."
+sudo systemctl daemon-reload
+
 echo "Restarting the Juneogo service..."
 sudo systemctl start juneogo.service
 
