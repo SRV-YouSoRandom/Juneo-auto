@@ -104,7 +104,7 @@ wget /home/juneo/.juneogo http://212.90.121.86:6969/juneogo_mdb_backup.zip
 
 # Unzip the snapshot into the .juneogo directory
 echo "Unzipping the snapshot DB file..."
-unzip -o /home/juneo/.juneogo/juneogo_mdb_backup.zip
+unzip /home/juneo/.juneogo/juneogo_mdb_backup.zip
 
 sleep 10
 
