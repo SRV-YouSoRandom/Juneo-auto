@@ -87,6 +87,9 @@ sudo systemctl enable juneogo.service
 echo "Starting the Juneogo service..."
 sudo systemctl start juneogo.service
 
+# Wait for 30 seconds
+sleep 30
+
 # Stop the service to prepare for DB restoration
 echo "Stopping the Juneogo service..."
 sudo systemctl stop juneogo.service
