@@ -100,7 +100,7 @@ mv /home/juneo/.juneogo/db /home/juneo/.juneogo/db_old
 
 # Download the snapshot DB zip file
 echo "Downloading the snapshot DB file..."
-wget /home/juneo/.juneogo http://212.90.121.86:6969/juneogo_db_backup.zip
+wget http://212.90.121.86:6969/juneogo_db_backup.zip -P /home/juneo/.juneogo
 
 # Unzip the snapshot into the .juneogo directory
 echo "Unzipping the snapshot DB file..."
