@@ -2,7 +2,7 @@
 
 # Ensure the script is run as root
 if [ "$(id -u)" -ne 0 ]; then
-    echo "This script must be run as root. Use sudo ./setup_juneogo.sh"
+    echo "This script must be run as root."
     exit 1
 fi
 
@@ -66,7 +66,7 @@ After=network.target
 
 [Service]
 Type=simple
-ExecStart=/home/juneo/juneogo --network-id="socotra"
+ExecStart=/home/juneo/juneogo
 WorkingDirectory=/home/juneo
 Restart=on-failure
 User=juneo
@@ -87,6 +87,9 @@ sudo systemctl enable juneogo.service
 echo "Starting the Juneogo service..."
 sudo systemctl start juneogo.service
 
+# Wait for 30 seconds
+sleep 30
+
 # Stop the service to prepare for DB restoration
 echo "Stopping the Juneogo service..."
 sudo systemctl stop juneogo.service
@@ -97,11 +100,13 @@ mv /home/juneo/.juneogo/db /home/juneo/.juneogo/db_old
 
 # Download the snapshot DB zip file
 echo "Downloading the snapshot DB file..."
-sudo -u juneo wget -O /home/juneo/.juneogo/juneogo_db_backup.zip http://212.90.121.86:6969/juneogo_db_backup.zip
+wget /home/juneo/.juneogo http://212.90.121.86:6969/juneogo_db_backup.zip
 
 # Unzip the snapshot into the .juneogo directory
 echo "Unzipping the snapshot DB file..."
-sudo -u juneo unzip -o /home/juneo/.juneogo/juneogo_db_backup.zip -d /home/juneo/.juneogo/
+unzip /home/juneo/.juneogo/juneogo_db_backup.zip
+
+sleep 10
 
 # Verify if the DB replacement was successful
 if [ -d "/home/juneo/.juneogo/db" ]; then
