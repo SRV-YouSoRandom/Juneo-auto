@@ -26,14 +26,14 @@ sudo apt-get update
    Open a terminal and run the following command to clone the repository:
    For Mainnet
    ```bash
-   git clone https://github.com/Srv8/Juneo-auto
+   git clone https://github.com/SRV-YouSoRandom/Juneo-auto
    cd Juneo-auto
    chmod +x mainnet.sh
    sudo ./mainnet.sh
    ```
    For Testnet
    ```bash
-   git clone https://github.com/Srv8/Juneo-auto
+   git clone https://github.com/SRV-YouSoRandom/Juneo-auto
    cd Juneo-auto
    chmod +x testnet.sh
    sudo ./testnet.sh
