@@ -256,21 +256,29 @@ ________________________________________________________________________________
 
 - **Move the current DB to a temp dir**
 
-```mv .juneogo/db .juneogo/db_old```
+```bash 
+mv .juneogo/db .juneogo/db_old
+```
 
 Replace the **.juneogo** with the correct path of your .juneogo dir
 
 - **Download the snapshot**
 
-```wget http://212.90.121.86:6969/juneogo_mdb_backup.zip -P .juneogo```
+```bash 
+wget http://212.90.121.86:6969/juneogo_mdb_backup.zip -P .juneogo
+```
 
 Replace the **.juneogo** with the correct path of your .juneogo dir
 
 - **Unzip the Snapshot**
 
-```unzip .juneogo/juneogo_mdb_backup.zip```
+```bash 
+unzip .juneogo/juneogo_mdb_backup.zip
+```
 
-```sudo systemctl daemon-reload```
+```bash 
+sudo systemctl daemon-reload
+```
 
 - **Restart the Node**
 
