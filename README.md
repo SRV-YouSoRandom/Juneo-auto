@@ -248,7 +248,9 @@ ________________________________________________________________________________
 
 # Snapshots
 
-**Link to snapshots** - HTTP://212.90.121.86:6969
+**Links to snapshots** 
+- http://212.90.121.86:6969/juneogo_mdb_backup.zip
+- https://sin1.contabostorage.com/9f27010c31e349bbb4465f8755b4ca60:zed/db-v.1.4.5-mainnet-juneo.tar.gz
 
 - **Stop your Node**
 
