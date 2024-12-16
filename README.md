@@ -244,30 +244,34 @@ sudo systemctl status juneogo.service
 
 ## Check if the NodeID matches your original NodeID
 
-## Snapshots
+__________________________________________________________________________________
+
+# Snapshots
+
 **Link to snapshots** - HTTP://212.90.121.86:6969
 
-### Stop your Node
+**Stop your Node**
 
-### Move the current DB to a temp dir
+**Find the ```.juneogo``` dir (can be located in different locations based on the method used to run the node)**
+
+**Move the current DB to a temp dir**
 ```mv .juneogo/db .juneogo/db_old```
 Replace the **.juneogo** with the correct path of your .juneogo dir
 
-### Find the ```.juneogo``` dir (can be located in different locations based on the method used to run the node)
-
-### Download the snapshot
+**Download the snapshot**
 ```wget http://212.90.121.86:6969/juneogo_mdb_backup.zip -P .juneogo```
 Replace the **.juneogo** with the correct path of your .juneogo dir
 
-### Unzip the Snapshot
+**Unzip the Snapshot**
 ```unzip .juneogo/juneogo_mdb_backup.zip```
 
 ```sudo systemctl daemon-reload```
 
-### Restart the Node
+**Restart the Node**
 
 **juneogo_mdb_backup.zip is for mainnet**
-   
+
+__________________________________________________________________________________
 
 ## Contributing
 
