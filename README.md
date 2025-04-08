@@ -108,12 +108,15 @@ sudo apt-get update
    }' -H 'content-type:application/json;' 127.0.0.1:9650/ext/info
    ```
 
-8. **To login as new user (juneo):**
-   
+8. **Check NodeID:**
    ```bash
-   su - juneo
-   ```
-   This logs you to the new user, and you can use your commands.
+   curl -X POST --data '{
+    "jsonrpc":"2.0",
+    "id"     :1,
+    "method" :"info.getNodeID"
+}' -H 'content-type:application/json' 127.0.0.1:9650/ext/info
+``` 
+
 
 Follow the given steps in this document: [Juneo Documentation](https://docs.juneo.com/intro/validate/add-a-validator)
 
