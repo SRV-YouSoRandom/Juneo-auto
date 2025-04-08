@@ -150,7 +150,7 @@ curl -X POST --data '{
 ```
 
 Output will look like this
-`bash
+```bash
 {
   "jsonrpc": "2.0",
   "result": {
@@ -167,7 +167,7 @@ Output will look like this
   },
   "id": 1
 }
-`
+```
 
 __________________________________________________________________________________
 
