@@ -140,6 +140,35 @@ Run the update file
 ./Juneo-auto/update.sh
 ```
 
+Check Node Version
+```bash
+curl -X POST --data '{
+    "jsonrpc":"2.0",
+    "id"     :1,
+    "method" :"info.getNodeVersion"
+}' -H 'content-type:application/json;' 127.0.0.1:9650/ext/info
+```
+
+Output will look like this
+`bash
+{
+  "jsonrpc": "2.0",
+  "result": {
+    "version": "juneogo/1.1.0",
+    "databaseVersion": "v1.4.5",
+    "rpcProtocolVersion": "35",
+    "gitCommit": "",
+    "vmVersions": {
+      "jevm": "v1.1.0",
+      "jvm": "v1.1.0",
+      "platform": "v1.1.0",
+      "srEr2XGGtowDVNQ6YgXcdUb16FGknssLTGUFYg7iMqESJ4h8e": "v0.6.4"
+    }
+  },
+  "id": 1
+}
+`
+
 __________________________________________________________________________________
 
 # Backup Instructions
