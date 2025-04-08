@@ -122,7 +122,7 @@ sudo apt-get update
 ``` 
 
 Follow the given steps in this document: [Juneo Documentation](https://docs.juneo.com/intro/validate/add-a-validator)
-
+```
 __________________________________________________________________________________
 
 # Update Node
