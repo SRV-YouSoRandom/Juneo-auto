@@ -39,6 +39,10 @@ sudo apt-get update
    sudo ./testnet.sh
    ```
 
+   For updates go here [Update-Node](#update-node)
+
+# Usage
+
 3. **Start and Stop the service:**
    
    ```bash
@@ -114,9 +118,8 @@ sudo apt-get update
     "jsonrpc":"2.0",
     "id"     :1,
     "method" :"info.getNodeID"
-}' -H 'content-type:application/json' 127.0.0.1:9650/ext/info
+   }' -H 'content-type:application/json' 127.0.0.1:9650/ext/info
 ``` 
-
 
 Follow the given steps in this document: [Juneo Documentation](https://docs.juneo.com/intro/validate/add-a-validator)
 
