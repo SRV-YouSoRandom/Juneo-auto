@@ -131,11 +131,14 @@ ________________________________________________________________________________
 curl -L -o update.sh https://raw.githubusercontent.com/SRV-YouSoRandom/Juneo-auto/main/update.sh
 ```
 Give permissions
-```chmod +x update.sh
+```bash
+chmod +x update.sh
 ```
 
 Run the update file
-```./Juneo-auto/update.sh```
+```bash
+./Juneo-auto/update.sh
+```
 
 __________________________________________________________________________________
 
