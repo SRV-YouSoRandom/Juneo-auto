@@ -3,8 +3,8 @@
 - [Prerequisites](#prerequisites)
 - [Installation Instructions](#installation-instructions)
 - [Usage](#usage)
+- [Update Node](#update-node)
 - [Backup Instructions](#backup-instructions)
-- [Snapshots](#snapshots)
 - [Contributing](#contributing)
 - [License](#license)
 
@@ -119,7 +119,27 @@ Follow the given steps in this document: [Juneo Documentation](https://docs.june
 
 __________________________________________________________________________________
 
-## Backup Instructions
+# Update Node
+
+### If you have an older version of my repo just install the script
+
+** Head to Juneo-auto dir **
+
+```cd ~/Juneo-auto```
+
+```bash
+curl -L -o update.sh https://raw.githubusercontent.com/SRV-YouSoRandom/Juneo-auto/main/update.sh
+```
+Give permissions
+```chmod +x update.sh
+```
+
+Run the update file
+```./Juneo-auto/update.sh```
+
+__________________________________________________________________________________
+
+# Backup Instructions
 
 ### How to backup my files
 
