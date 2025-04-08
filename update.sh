@@ -43,6 +43,7 @@ rm -rf ~/juneogo-binaries
 
 # 8. Restart the node
 echo "🚀 Restarting juneogo systemd service..."
+sudo systemctl daemon-reload
 sudo systemctl start juneogo.service
 
 echo "✅ Juneogo node updated and restarted successfully."
